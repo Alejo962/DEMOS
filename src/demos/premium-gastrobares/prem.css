@@ -1,0 +1,184 @@
+.t-prem {
+  --paper: #0b0b0b;
+  --ink: #ece7de;
+  --soft: #141414;
+  --line: rgb(236 231 222 / 0.14);
+  --mute: #8f8a80;
+  --p: #b79b62;
+  --a: #d9c18a;
+  --f-display: 'Cormorant Garamond', Georgia, serif;
+  --f-body: 'Jost', system-ui, sans-serif;
+  letter-spacing: 0.01em;
+}
+.t-prem .light {
+  --paper: #f3f0e9;
+  --ink: #0b0b0b;
+  --soft: #e8e3d8;
+  --line: rgb(11 11 11 / 0.15);
+  --mute: #6a665d;
+  background: var(--paper);
+  color: var(--ink);
+}
+.t-prem .eyebrow {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--p);
+}
+.t-prem .light .eyebrow {
+  color: #8a7240;
+}
+.t-prem .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 34px;
+  border: 1px solid var(--p);
+  color: var(--ink);
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  transition: background 0.5s cubic-bezier(0.2, 0.7, 0.2, 1), color 0.5s, gap 0.5s;
+  cursor: pointer;
+}
+.t-prem .btn:hover {
+  background: var(--p);
+  color: #0b0b0b;
+  gap: 20px;
+}
+.t-prem .light .btn {
+  border-color: #0b0b0b;
+}
+.t-prem .light .btn:hover {
+  background: #0b0b0b;
+  color: #f3f0e9;
+}
+.t-prem .link {
+  position: relative;
+  font-size: 12px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+}
+.t-prem .link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.t-prem .link:hover::after,
+.t-prem .link.on::after {
+  transform: scaleX(1);
+}
+.t-prem .slowzoom {
+  animation: prem-zoom 30s ease-out forwards;
+}
+@keyframes prem-zoom {
+  from {
+    transform: scale(1.12);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+.t-prem .rise {
+  opacity: 0;
+  transform: translateY(26px);
+  animation: prem-rise 1.4s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+@keyframes prem-rise {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.t-prem .cue {
+  width: 1px;
+  height: 64px;
+  background: linear-gradient(var(--p), transparent);
+  transform-origin: top;
+  animation: prem-cue 2.4s ease-in-out infinite;
+}
+@keyframes prem-cue {
+  0% {
+    transform: scaleY(0);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+  100% {
+    transform: scaleY(1);
+    opacity: 0;
+  }
+}
+.t-prem .row-line {
+  border-top: 1px solid var(--line);
+  transition: padding 0.5s cubic-bezier(0.2, 0.7, 0.2, 1), color 0.3s;
+}
+.t-prem .row-line:last-child {
+  border-bottom: 1px solid var(--line);
+}
+.t-prem .gal img {
+  filter: grayscale(0.85) contrast(1.05);
+  transition: filter 0.9s, transform 1.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.t-prem .gal:hover img {
+  filter: grayscale(0) contrast(1);
+  transform: scale(1.05);
+}
+.t-prem .field {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  padding: 14px 0;
+  color: var(--ink);
+  font-size: 17px;
+  outline: none;
+  color-scheme: dark;
+  transition: border-color 0.3s;
+}
+.t-prem .field:focus {
+  border-color: var(--p);
+}
+.t-prem .field option {
+  color: #111;
+}
+.t-prem .map-dark iframe {
+  filter: grayscale(1) invert(0.92) contrast(0.85) brightness(0.9);
+}
+.t-prem .wa-prem {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: #0b0b0b;
+  color: var(--p);
+  border: 1px solid var(--p);
+  transition: background 0.4s, color 0.4s, transform 0.4s;
+}
+.t-prem .wa-prem:hover {
+  background: var(--p);
+  color: #0b0b0b;
+  transform: translateY(-3px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .t-prem .slowzoom,
+  .t-prem .rise,
+  .t-prem .cue {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}

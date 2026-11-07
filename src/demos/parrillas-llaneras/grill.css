@@ -1,0 +1,149 @@
+.t-grill {
+  --paper: #1b110b;
+  --ink: #efe3cc;
+  --soft: #28190f;
+  --line: rgb(239 227 204 / 0.18);
+  --mute: #b9a88c;
+  --p: #b5522f;
+  --a: #d9b77e;
+  --f-display: 'Playfair Display', Georgia, serif;
+  --f-body: 'Work Sans', system-ui, sans-serif;
+  background-image:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 .9 0 0 0 0 .75 0 0 0 .05 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+/* Secciones claras (tono arena) reasignan las variables */
+.t-grill .sand {
+  --paper: #e9ddc5;
+  --ink: #2a1a10;
+  --soft: #dccdac;
+  --line: rgb(42 26 16 / 0.2);
+  --mute: #6b5843;
+  background-color: var(--paper);
+  color: var(--ink);
+}
+.t-grill .wood {
+  background-image:
+    repeating-linear-gradient(90deg, rgb(0 0 0 / 0.14) 0 2px, transparent 2px 46px),
+    repeating-linear-gradient(90deg, rgb(255 255 255 / 0.025) 0 1px, transparent 1px 9px);
+}
+.t-grill .ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  color: var(--a);
+}
+.t-grill .sand .ornament {
+  color: var(--p);
+}
+.t-grill .ornament::before,
+.t-grill .ornament::after {
+  content: '';
+  height: 1px;
+  width: 54px;
+  background: currentColor;
+  opacity: 0.6;
+}
+.t-grill .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 28px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border: 1px solid var(--a);
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+  cursor: pointer;
+}
+.t-grill .btn-fill {
+  background: var(--p);
+  border-color: var(--p);
+  color: #fff;
+}
+.t-grill .btn-fill:hover {
+  background: var(--a);
+  border-color: var(--a);
+  color: #1b110b;
+}
+.t-grill .btn-ghost {
+  color: var(--ink);
+}
+.t-grill .btn-ghost:hover {
+  background: var(--a);
+  color: #1b110b;
+}
+.t-grill .sand .btn-ghost {
+  border-color: var(--ink);
+}
+.t-grill .sand .btn-ghost:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+.t-grill .leader {
+  flex: 1;
+  border-bottom: 2px dotted var(--line);
+  transform: translateY(-5px);
+  min-width: 16px;
+}
+.t-grill .dropcap::first-letter {
+  font-family: var(--f-display);
+  float: left;
+  font-size: 4.4em;
+  line-height: 0.82;
+  padding: 6px 12px 0 0;
+  color: var(--p);
+}
+.t-grill .ken {
+  animation: grill-ken 24s ease-in-out infinite alternate;
+}
+@keyframes grill-ken {
+  to {
+    transform: scale(1.09);
+  }
+}
+.t-grill .field {
+  width: 100%;
+  background: rgb(255 255 255 / 0.07);
+  border: 1px solid rgb(255 255 255 / 0.35);
+  color: #fff;
+  padding: 13px 14px;
+  font-size: 15px;
+  outline: none;
+  color-scheme: dark;
+}
+.t-grill .field:focus {
+  border-color: #fff;
+  background: rgb(255 255 255 / 0.12);
+}
+.t-grill .field option {
+  color: #111;
+}
+.t-grill .wa-grill {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--p);
+  color: #fff;
+  border: 2px solid var(--a);
+  box-shadow: 0 10px 28px rgb(0 0 0 / 0.45);
+  transition: transform 0.25s, background 0.25s;
+}
+.t-grill .wa-grill:hover {
+  transform: scale(1.08);
+  background: #25d366;
+  border-color: #fff;
+}
+@media (prefers-reduced-motion: reduce) {
+  .t-grill .ken {
+    animation: none;
+  }
+}

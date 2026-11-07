@@ -1,0 +1,111 @@
+.t-fast {
+  --ink: #0d0d0d;
+  --paper: #fff3dc;
+  --soft: #f7e7c6;
+  --line: #0d0d0d;
+  --mute: #6b5f4b;
+  --p: #e11d2e;
+  --a: #ff7a1a;
+  --f-display: 'Anton', Impact, sans-serif;
+  --f-body: 'Archivo', system-ui, sans-serif;
+}
+.t-fast .stroke-text {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--p);
+}
+.t-fast .brut {
+  border: 2px solid var(--ink);
+  box-shadow: 6px 6px 0 var(--ink);
+  transition: transform 0.18s, box-shadow 0.18s;
+}
+.t-fast .brut:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 9px 9px 0 var(--ink);
+}
+.t-fast .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--f-display);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 17px;
+  padding: 14px 24px;
+  border: 2px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+  transition: transform 0.15s, box-shadow 0.15s;
+  cursor: pointer;
+}
+.t-fast .btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+.t-fast .btn-red {
+  background: var(--p);
+  color: #fff;
+}
+.t-fast .btn-light {
+  background: var(--paper);
+  color: var(--ink);
+}
+.t-fast .btn-dark {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+  box-shadow: 4px 4px 0 var(--paper);
+}
+.t-fast .on-dark .btn {
+  border-color: var(--paper);
+  box-shadow: 4px 4px 0 var(--a);
+}
+.t-fast .stripes {
+  background-image: repeating-linear-gradient(-45deg, transparent 0 14px, rgb(0 0 0 / 0.1) 14px 28px);
+}
+.t-fast .marquee {
+  display: flex;
+  width: max-content;
+  animation: fast-marq 28s linear infinite;
+}
+@keyframes fast-marq {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.t-fast .halftone {
+  background-image: radial-gradient(rgb(255 255 255 / 0.12) 1.5px, transparent 1.6px);
+  background-size: 14px 14px;
+}
+.t-fast .spin-slow {
+  animation: fast-spin 22s linear infinite;
+}
+@keyframes fast-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.t-fast .wa-fast {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  background: #25d366;
+  color: #0d0d0d;
+  border: 2px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+  border-radius: 14px;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.t-fast .wa-fast:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+@media (prefers-reduced-motion: reduce) {
+  .t-fast .marquee,
+  .t-fast .spin-slow {
+    animation: none;
+  }
+}
